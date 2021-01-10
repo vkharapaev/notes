@@ -1,0 +1,15 @@
+sudo docker images -- список имеджей
+sudo docker ps -- список запущенных контейнеров
+sudo docker ps -a -- список всех контейнеров (запущенных и остановленных)
+sudo docker build -t hello-world . -- создание докер имеджа в текущей директории
+sudo docker run hello-world -- запуск контейнера
+sudo docker run --name hello hello-world -- указание имени контейнера
+sudo docker run --name hello -d hello-world -- запуск контейнера в фоне
+sudo docker run --name hello -d --rm hello-world -- удаление контейнера после его остановки
+sudo docker run --name hello --rm --name web -p 8080:8080 web-hello -- проброс порта
+sudo docker run --name hello --rm --name web -p 8080:8080 -e TZ=Asia/Yekaterinburg web-hello -- указание часового пояса
+sudo docker run --rm --name web -p 8080:8080 -e TZ=Asia/Yekaterinburg -v /home/vkharapaev/repos/common/docker/docker-hello-world/resources:/usr/src/app/resources web-hello -- подключение локальной директории 
+sudo docker rm 0da92cb982b1 -- удаление контейнера по id либо имени
+sudo docker ps -a -q -- возвращает id-ники контейнеров
+sudo docker rm $(sudo docker ps -aq) -- удаление всех контейнеров
+sudo docker stop hello -- остановка контейнера по id либо имени
